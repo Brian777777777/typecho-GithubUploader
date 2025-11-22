@@ -1,6 +1,6 @@
 <?php
 /**
- * Gallery
+ * Gallery Ultimate Images 
  *
  * @package custom
  */
@@ -22,9 +22,9 @@
     .wallpaper-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center; 
+        justify-content: flex-start; 
         gap: 15px;
-        padding: 20px 10px;
+        padding: 20px 18px;
         min-height: 400px;
     }
 
