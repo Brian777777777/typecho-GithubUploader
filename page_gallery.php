@@ -1,6 +1,6 @@
 <?php
 /**
- * Gallery Ultimate Images 
+ * Gallery
  *
  * @package custom
  */
