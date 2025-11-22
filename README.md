@@ -108,5 +108,4 @@ Typecho根目录/
 
 ## 📜 许可证
 
-Custom Solution for Brian.
-Based on Typecho Plugin Architecture.
+for Brian. Based on Typecho Plugin Architecture.
