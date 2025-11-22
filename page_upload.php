@@ -1,6 +1,6 @@
 <?php
 /**
- * GitHub Upload Page (UI Only)
+ * GitHub Upload Page
  *
  * @package custom
  */
