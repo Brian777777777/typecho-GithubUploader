@@ -20,16 +20,24 @@ $GALLERY_SLUG = $cfg->gallery_slug;
 $db = Typecho_Db::get();
 $page = $db->fetchRow($db->select()->from('table.contents')->where('slug = ?', $GALLERY_SLUG)->limit(1));
 $cats = [];
+
 if ($page) {
-    $content = preg_replace('/^\xEF\xBB\xBF/', '', $page['text']);
-    if (preg_match_all('/^#\s+(.+?)\s*$/mu', $content, $matches)) {
+    $content = $page['text'];
+    $content = preg_replace('~<\s*br\s*/?\s*>~i', "\n", $content);
+    $content = html_entity_decode($content, ENT_QUOTES, 'UTF-8');
+    $content = strip_tags($content);
+    $content = str_replace(["\r\n", "\r"], "\n", $content);
+    $content = preg_replace('/(^|\n)[\p{Cf}\x{00A0}]+/u', '$1', $content);
+    if (preg_match_all('/^\s*#\s*(.+?)\s*$/mu', $content, $matches)) {
         foreach ($matches[1] as $c) {
             $c = trim($c);
-            if (!empty($c) && stripos($c, 'http') !== 0) $cats[] = $c;
+            if ($c !== '' && stripos($c, 'http') !== 0) $cats[] = $c;
         }
     }
+
     $cats = array_values(array_unique($cats));
 }
+
 
 $this->need('component/header.php'); 
 ?>
@@ -288,7 +296,7 @@ $this->need('component/header.php');
 
                 if (d.success) {
                     document.getElementById('preview').src = d.url;
-                    document.getElementById('msg').innerText = "✅ 成功！" + d.msg;
+                    document.getElementById('msg').innerText = "(⁎˃ᆺ˂)  上传成功！";
                     
                     const alt = file.name.replace(/\.[^/.]+$/, "");
                     document.getElementById('mdUrl').value = `![${alt}](${d.url})`;
