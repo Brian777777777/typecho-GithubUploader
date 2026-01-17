@@ -12,7 +12,7 @@
 * **🔧 零依赖**：不需要修改 Typecho 核心代码，不依赖伪静态配置。
 
 ## 截图
-![Uploading 44c5a1ce-6ff0-4f92-989e-09322c25c821.png…]()
+https://github.com/Brian777777777/typecho-GithubUploader/blob/main/44c5a1ce-6ff0-4f92-989e-09322c25c821.png
 
 
 ## 📂 目录结构
